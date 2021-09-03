@@ -1,10 +1,22 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <SideBar />
+  <div :style="{ 'margin-left': sidebarWidth }">
+    <router-view />
   </div>
-  <router-view />
 </template>
+
+<script>
+import SideBar from "./components/SideBar/SideBar";
+import { sidebarWidth } from "./components/SideBar/state";
+export default {
+  components: {
+    SideBar,
+  },
+  setup() {
+    return { sidebarWidth };
+  },
+};
+</script>
 
 <style>
 #app {
